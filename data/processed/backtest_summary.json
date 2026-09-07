@@ -1,0 +1,8 @@
+{
+  "wape_model":0.185349464,
+  "wape_baseline":0.2624989544,
+  "bias_model":-0.0273600211,
+  "bias_baseline":-0.0329898023,
+  "improvement_vs_baseline_pct":29.3903991471,
+  "n_folds":6.0
+}

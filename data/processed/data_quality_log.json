@@ -1,0 +1,10 @@
+{
+  "sku_master_dupes_removed": "Dropped 3 duplicate sku_id rows.",
+  "sku_master_label_fix": "Title-cased 12 inconsistent category labels (e.g. 'furnishings' -> 'Furnishings').",
+  "sales_dupes_removed": "Dropped 50 exact duplicate sales rows.",
+  "sales_negative_units": "Removed 20 rows with a negative units_sold sentinel value (data-entry artifact, not a valid return code in this extract).",
+  "sales_missing_revenue": "Imputed 934 missing revenue values as units_sold * unit_price.",
+  "inventory_dupes_removed": "Dropped 0 duplicate inventory rows.",
+  "inventory_unresolved_after_fill": "0 SKU-day rows still lack an inventory position after fill; these SKUs have no snapshot history and are excluded from risk scoring, not silently zero-filled.",
+  "output_rows": "93349 rows, 200 SKUs written to data\\processed\\master.csv."
+}

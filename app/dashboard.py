@@ -656,18 +656,22 @@ with tab4:
         st.markdown("#### 📈 Model vs. Seasonal Naive Baseline by Fold")
         if not bt_results.empty:
             fig_bt = go.Figure()
+            fold_labels = [f"Fold {i+1} ({row['origin_week']})" if "origin_week" in row else f"Fold {i+1}" for i, row in bt_results.iterrows()]
+            baseline_vals = bt_results["wape_baseline"] if "wape_baseline" in bt_results.columns else bt_results.get("baseline_wape", [])
+            model_vals = bt_results["wape_model"] if "wape_model" in bt_results.columns else bt_results.get("model_wape", [])
+
             fig_bt.add_trace(
                 go.Bar(
-                    x=[f"Fold {int(f)}" for f in bt_results["fold"]],
-                    y=bt_results["baseline_wape"],
+                    x=fold_labels,
+                    y=baseline_vals,
                     name="Seasonal-Naive Baseline",
                     marker_color="#64748b",
                 )
             )
             fig_bt.add_trace(
                 go.Bar(
-                    x=[f"Fold {int(f)}" for f in bt_results["fold"]],
-                    y=bt_results["model_wape"],
+                    x=fold_labels,
+                    y=model_vals,
                     name="FORESIGHT GBDT Model",
                     marker_color="#10b981",
                 )
